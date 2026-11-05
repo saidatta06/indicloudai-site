@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IndiCloudAI — Sovereign AI and cloud, built in India</title>
+<meta name="description" content="IndiCloudAI builds domain-expert small language models and cloud solutions in India. Your data stays in India. No dependency on foreign platforms.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪔</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1d1a4d; --paper:#f4f5fb; --panel:#ffffff; --line:#cfd2e8; --muted:#55587a;
+  --accent:#b9561f; --accent-soft:#f3e3d8; --indigo:#2f2b86;
+  --head:"Bricolage Grotesque",system-ui,sans-serif;
+  --body:"Source Serif 4",Georgia,serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{--ink:#eceafc;--paper:#12112b;--panel:#1b1a3d;--line:#37356b;--muted:#a9abd0;--accent:#f0a06b;--accent-soft:#3a2a2a;--indigo:#9d9aff}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+body{margin:0;background:var(--paper);color:var(--ink);font:1.08rem/1.65 var(--body)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.25rem}
+h1,h2,h3{font-family:var(--head);line-height:1.1;margin:0;letter-spacing:-.02em}
+p{margin:0 0 1rem;max-width:62ch}
+header{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:3.6rem}
+.logo{font:700 1.15rem var(--head);text-decoration:none}
+.logo b{color:var(--accent)}
+nav a{font:500 .95rem var(--head);margin-left:1.2rem;text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+.hero{padding:4.5rem 0 3.5rem}
+.hero h1{font-size:clamp(2.3rem,6.2vw,4.4rem);max-width:15ch}
+.hero .lead{font-size:1.25rem;margin-top:1.4rem;color:var(--muted)}
+.btns{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.8rem}
+.btn{font:700 1rem var(--head);padding:.8rem 1.4rem;border-radius:.4rem;text-decoration:none;border:2px solid var(--ink)}
+.btn.p{background:var(--ink);color:var(--paper)}
+.map{margin-top:3rem;background:var(--panel);border:1px solid var(--line);border-radius:.6rem;padding:1rem}
+.map svg{width:100%;height:auto;display:block}
+.map text{font-family:var(--head);fill:var(--ink)}
+section{padding:3.5rem 0;border-top:1px solid var(--line)}
+section h2{font-size:clamp(1.7rem,4vw,2.5rem);max-width:20ch;margin-bottom:1.2rem}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:1.6rem}
+.cmp>div{background:var(--panel);border:1px solid var(--line);border-radius:.5rem;padding:1.3rem}
+.cmp .win{border:2px solid var(--indigo)}
+.cmp h3{font-size:1.2rem;margin-bottom:.6rem}
+ul{margin:0;padding-left:1.1rem}
+li{margin-bottom:.45rem}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin-top:1.6rem}
+.three h3{font-size:1.25rem;margin-bottom:.5rem;color:var(--indigo)}
+.rules{list-style:none;padding:0;margin-top:1.4rem;max-width:44rem}
+.rules li{padding:.9rem 0 .9rem 1.2rem;border-left:4px solid var(--accent);margin-bottom:.8rem;background:var(--accent-soft);border-radius:0 .4rem .4rem 0}
+.rules strong{font-family:var(--head)}
+.founder{display:grid;grid-template-columns:auto 1fr;gap:1.6rem;align-items:start}
+.badge{width:5rem;height:5rem;border-radius:50%;background:var(--indigo);color:var(--paper);display:grid;place-items:center;font:700 2rem var(--head)}
+footer{padding:2rem 0 3rem;border-top:1px solid var(--line);color:var(--muted);font-size:.95rem}
+@media (max-width:720px){.cmp,.three{grid-template-columns:1fr}nav a:not(:last-child){display:none}.founder{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:no-preference){.flow{stroke-dasharray:6 6;animation:dash 1.4s linear infinite}@keyframes dash{to{stroke-dashoffset:-24}}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="logo" href="#top">Indi<b>Cloud</b>AI</a>
+  <nav><a href="#approach">Approach</a><a href="#build">What we build</a><a href="#principles">Principles</a><a href="#founder">Founder</a><a href="#contact">Contact</a></nav>
+</div></header>
+
+<main id="top">
+<div class="wrap hero">
+  <h1>AI and cloud that belong to India.</h1>
+  <p class="lead">We build small, domain-expert language models and the cloud they run on. Your data stays in India, and nothing we make depends on a foreign platform.</p>
+  <div class="btns"><a class="btn p" href="#contact">Talk to the founder</a><a class="btn" href="#approach">See our approach</a></div>
+
+  <div class="map" role="img" aria-label="Diagram: data flows from your systems to a domain model and back, entirely inside India. A path to foreign clouds is blocked.">
+    <svg viewBox="0 0 760 230">
+      <rect x="10" y="10" width="560" height="210" rx="14" fill="none" stroke="var(--indigo)" stroke-width="2.5" stroke-dasharray="3 7"/>
+      <text x="28" y="38" font-size="15" font-weight="700">Inside India</text>
+      <rect x="40" y="85" width="140" height="62" rx="8" fill="var(--paper)" stroke="var(--line)" stroke-width="2"/>
+      <text x="110" y="122" font-size="15" text-anchor="middle">Your data</text>
+      <rect x="230" y="85" width="140" height="62" rx="8" fill="var(--indigo)"/>
+      <text x="300" y="122" font-size="15" text-anchor="middle" style="fill:var(--paper)">Domain SLM</text>
+      <rect x="420" y="85" width="130" height="62" rx="8" fill="var(--paper)" stroke="var(--line)" stroke-width="2"/>
+      <text x="485" y="122" font-size="15" text-anchor="middle">Your answer</text>
+      <path class="flow" d="M182 116H228M372 116H418" stroke="var(--accent)" stroke-width="3" fill="none"/>
+      <path d="M570 116H640" stroke="var(--line)" stroke-width="3" stroke-dasharray="4 6"/>
+      <circle cx="605" cy="116" r="15" fill="var(--panel)" stroke="var(--accent)" stroke-width="3"/>
+      <path d="M595 106l20 20M615 106l-20 20" stroke="var(--accent)" stroke-width="3"/>
+      <text x="700" y="112" font-size="14" text-anchor="middle">Foreign</text>
+      <text x="700" y="130" font-size="14" text-anchor="middle">clouds</text>
+    </svg>
+  </div>
+</div>
+
+<section id="approach"><div class="wrap">
+  <h2>Experts, not generalists.</h2>
+  <p>A general-purpose large model tries to answer everything, so it sometimes answers with confidence and no basis. We take the other route: small language models trained on one domain, with sources we can name.</p>
+  <div class="cmp">
+    <div><h3>General-purpose LLM</h3><ul><li>Trained on the open internet</li><li>Can invent facts when unsure</li><li>Needs heavy, remote infrastructure</li><li>Data often leaves the country</li></ul></div>
+    <div class="win"><h3>Domain-expert SLM</h3><ul><li>Trained on curated domain data</li><li>Answers within its scope, and says when it is outside it</li><li>Light enough to run in India, even on-premise</li><li>Data stays where you keep it</li></ul></div>
+  </div>
+</div></section>
+
+<section id="build"><div class="wrap">
+  <h2>What we are building.</h2>
+  <div class="three">
+    <div><h3>Domain language models</h3><p>Small models for security, public services and regional-language use cases, each built around one field and tested against it.</p></div>
+    <div><h3>Sovereign cloud solutions</h3><p>Architecture and tooling for hosting AI workloads on Indian infrastructure, with identity and access controls designed in from the start.</p></div>
+    <div><h3>AI-powered cybersecurity</h3><p>Detection that works on the device or inside your network, so protection does not depend on sending data abroad.</p></div>
+  </div>
+</div></section>
+
+<section id="principles"><div class="wrap">
+  <h2>Three rules we do not bend.</h2>
+  <ul class="rules">
+    <li><strong>Data residency.</strong> Training data, prompts and outputs stay in India.</li>
+    <li><strong>No Western dependency.</strong> We choose components, hosting and tooling so the product keeps running without them.</li>
+    <li><strong>Honest answers.</strong> A model that does not know says so, instead of guessing.</li>
+  </ul>
+</div></section>
+
+<section id="founder"><div class="wrap founder">
+  <div class="badge" aria-hidden="true">S</div>
+  <div>
+    <h2>Founder</h2>
+    <p><strong>Saidatta</strong> founded IndiCloudAI in Telangana. He works in cloud security and identity, holds Azure and AWS certifications, and builds in Python, Kotlin and applied machine learning.</p>
+    <p>The goal is simple: deep technology for India, made in India.</p>
+  </div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <h2>Work with us.</h2>
+  <p>Looking for a domain model, a sovereign deployment, or a research partnership? Write to us and say what you need.</p>
+  <div class="btns"><a class="btn p" href="mailto:saidatta@indicloudai.in">saidatta@indicloudai.in</a></div>
+</div></section>
+</main>
+
+<footer><div class="wrap">© <span id="y">2026</span> IndiCloudAI. Telangana, India.</div></footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
