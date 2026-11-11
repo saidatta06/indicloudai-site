@@ -47,11 +47,13 @@
 }
 </script>
 <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<script>try{if(!sessionStorage.getItem('splash')&&!matchMedia('(prefers-reduced-motion:reduce)').matches&&!location.hash)document.documentElement.classList.add('has-splash')}catch(e){}</script>
 </head>
 <body>
+<div id="splash" role="dialog" aria-label="IndiCloudAI intro"><div class="ba-s"></div><button class="ba-skip" type="button">Skip intro</button></div>
 <a class="skip" href="#main">Skip to content</a>
 <div id="prog" aria-hidden="true"></div>
-<header><div class="wrap"><a class="logo" href="index.html"><img class="lm" src="logo-mark.png" alt="" width="46" height="33"><span class="wm">IndiCloud<i>AI</i></span></a><nav aria-label="Main"><a href="index.html" aria-current="page">Home</a><a href="products.html">Product</a><a href="technology.html">Technology</a><a href="security.html">Security</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav><button id="theme" class="tbtn" type="button" aria-label="Switch light or dark theme">◐</button></div></header>
+<header><div class="wrap"><a class="logo" href="index.html"><img class="lm" src="logo-mark.png" alt="" width="53" height="34"><span class="wm">IndiCloud<i>AI</i></span></a><nav aria-label="Main"><a href="index.html" aria-current="page">Home</a><a href="products.html">Product</a><a href="technology.html">Technology</a><a href="security.html">Security</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav><button id="theme" class="tbtn" type="button" aria-label="Switch light or dark theme">◐</button></div></header>
 <main id="main">
 <div class="wrap hero"><canvas id="net" aria-hidden="true"></canvas><div>
 <div class="rot">Scam protection in <b id="rot">हिन्दी</b></div>
@@ -143,6 +145,7 @@
 <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 <button id="totop" class="totop" type="button" aria-label="Back to top">↑</button>
 <div id="toast" role="status" aria-live="polite"></div>
+<script src="brand-anim.js" defer></script>
 <script src="site.js" defer></script>
 </body>
 </html>
