@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Technology — Domain-expert small language models | IndiCloudAI</title>
+<meta name="description" content="How IndiCloudAI builds, tests and deploys compact domain language models on-device and in Indian cloud regions.">
+<link rel="canonical" href="https://indicloudai.in/technology.html">
+<meta property="og:image" content="https://indicloudai.in/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b6e7a">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="IndiCloudAI">
+<meta property="og:title" content="Technology — Domain-expert small language models | IndiCloudAI">
+<meta property="og:description" content="How IndiCloudAI builds, tests and deploys compact domain language models on-device and in Indian cloud regions.">
+<meta property="og:url" content="https://indicloudai.in/technology.html">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div id="prog" aria-hidden="true"></div>
+<header><div class="wrap"><a class="logo" href="index.html"><img class="lm" src="logo-mark.png" alt="" width="53" height="34"><span class="wm">IndiCloud<i>AI</i></span></a><nav aria-label="Main"><a href="index.html">Home</a><a href="products.html">Product</a><a href="playground.html">Playground</a><a href="technology.html" aria-current="page">Technology</a><a href="security.html">Security</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav><button id="theme" class="tbtn" type="button" aria-label="Switch light or dark theme">◐</button></div></header>
+<main id="main">
+<div class="wrap ph"><h1>Small models, built for one job.</h1><p class="lead">A general large model answers everything and can invent facts when it is unsure. We train compact models on one domain, test them against that domain, and deploy them where the data already lives.</p></div>
+<section class="t"><div class="wrap"><h2 class="h">Domain SLMs compared with general LLMs</h2>
+<div class="scroll"><table><thead><tr><th></th><th scope="col">General-purpose LLM</th><th scope="col">IndiCloudAI domain SLM</th></tr></thead><tbody>
+<tr><th scope="row">Training data</th><td>Broad internet text</td><td>Curated, domain-specific data</td></tr>
+<tr><th scope="row">Reliability</th><td>Can produce confident, unsupported answers</td><td>Constrained to one task, with measurable accuracy</td></tr>
+<tr><th scope="row">Where it runs</th><td>Large remote infrastructure</td><td>On the device or in an Indian data centre</td></tr>
+<tr><th scope="row">Data exposure</th><td>Prompts often leave the country</td><td>Data stays where it is created</td></tr></tbody></table></div></div></section>
+<section><div class="wrap"><h2 class="h">Our model pipeline</h2>
+<ol class="steps"><li><strong>Start with an Indic teacher</strong><span>A multilingual model that understands Indian languages.</span></li>
+<li><strong>Distil to a student</strong><span>Knowledge distillation with temperature scaling and a combined KL and cross-entropy loss.</span></li>
+<li><strong>Quantise and export</strong><span>INT8 ONNX keeps accuracy while cutting size and compute.</span></li>
+<li><strong>Test before release</strong><span>A 138-case suite exposes blind spots before users do.</span></li></ol></div></section>
+<section class="t"><div class="wrap"><h2 class="h">How testing shapes the model</h2>
+<p>Our pre-release suite found weak spots in tech-support, delivery and minority-language scam patterns, and a tendency to misclassify KYC scams. We also found false positives from system notifications and fixed them with a package-name whitelist. We publish this because honest evaluation is part of building a reliable domain model.</p></div></section>
+<section><div class="wrap"><h2 class="h">Cloud architecture</h2>
+<p>Our models run on-device. Cloud is used for training, data preparation, evaluation and, as we add business customers, hosted APIs and dashboards. We design for any major provider by using containers and open model formats such as ONNX, and we deploy in Indian regions so data stays in the country.</p>
+<div class="scroll"><table><thead><tr><th scope="col">Workload</th><th scope="col">Purpose</th></tr></thead><tbody>
+<tr><th scope="row">GPU compute</th><td>Model training, distillation and evaluation runs</td></tr>
+<tr><th scope="row">Encrypted object storage</th><td>Curated datasets and model artefacts, kept in India</td></tr>
+<tr><th scope="row">Containers and CI/CD</th><td>Reproducible builds, automated tests and model releases</td></tr>
+<tr><th scope="row">Managed identity</th><td>Least-privilege access and MFA across environments</td></tr>
+<tr><th scope="row">Hosted inference and APIs</th><td>Planned offering for enterprise and partner use</td></tr>
+<tr><th scope="row">Monitoring</th><td>Model performance, drift and security alerts</td></tr></tbody></table></div>
+<p class="m" style="margin-top:1rem">Target regions include AWS Mumbai and Hyderabad, Azure Central India and South India, and Google Cloud Mumbai and Delhi.</p></div></section>
+<section><div class="wrap two"><div><span class="st next">Preview</span><h2 class="h">API and playground.</h2>
+<p>The model is available through a REST API, and the <a href="playground.html">playground</a> uses it so you can try messages yourself. For now the preview runs on a demo server outside India (currently Singapore). We plan to move it to an Indian cloud region.</p>
+<p>Our service does not store submitted text. See the <a href="model-card.html">model card</a> for what the model is and where it falls short.</p></div>
+<div><pre class="code" aria-label="Example API request and response"><span class="c"># Example format. Values are illustrative.</span>
+<span class="k">POST</span> /v1/classify
+{
+  <span class="s">"text"</span>: <span class="s">"Your KYC expires today. Update now."</span>,
+  <span class="s">"top_k"</span>: <span class="s">5</span>
+}
+
+<span class="c"># Response (shortened)</span>
+{
+  <span class="s">"label"</span>: <span class="s">"kyc_fraud"</span>,
+  <span class="s">"confidence"</span>: <span class="s">0.97</span>,
+  <span class="s">"verdict"</span>: { <span class="s">"level"</span>: <span class="s">"scam"</span> },
+  <span class="s">"latency_ms"</span>: <span class="s">18</span>
+}</pre></div></div></section>
+<section class="band"><div class="wrap"><h2>Work with IndiCloudAI</h2><p>Pilots, partnerships, research collaborations and investor enquiries are welcome.</p><div class="btns"><a class="btn" href="contact.html">Contact us</a></div></div></section>
+</main>
+<footer><div class="wrap">
+<div class="fg">
+<div><a class="ft-logo" href="index.html"><img src="logo.png" alt="IndiCloudAI: Innovation, Cloud, Intelligence" width="152" height="124"></a><p>Domain-expert AI built and hosted in India. Telangana, India.</p></div>
+<div><h3>Company</h3><a href="about.html">About</a><a href="products.html">Product</a><a href="technology.html">Technology</a><a href="security.html">Security</a></div>
+<div><h3>Resources</h3><a href="model-card.html">Model card</a><a href="brand.html">Brand kit</a></div>
+<div><h3>Legal</h3><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of use</a></div>
+<div><h3>Connect</h3><a href="mailto:saidatta@indicloudai.in">saidatta@indicloudai.in</a><a href="https://www.linkedin.com/in/saidatta-veligeti-666802217" rel="noopener" target="_blank">Founder on LinkedIn</a></div>
+</div>
+<div class="fb">© <span id="y">2026</span> IndiCloudAI. All rights reserved.</div>
+</div></footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+<button id="totop" class="totop" type="button" aria-label="Back to top">↑</button>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="site.js" defer></script>
+</body>
+</html>

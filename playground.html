@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Playground: try the Antahpragna model | IndiCloudAI</title>
+<meta name="description" content="Type or paste a message and see how the Antahpragna scam detection model classifies it, live.">
+<link rel="canonical" href="https://indicloudai.in/playground.html">
+<meta property="og:image" content="https://indicloudai.in/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b6e7a">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="IndiCloudAI">
+<meta property="og:title" content="Playground: try the Antahpragna model | IndiCloudAI">
+<meta property="og:description" content="Type or paste a message and see how the Antahpragna scam detection model classifies it, live.">
+<meta property="og:url" content="https://indicloudai.in/playground.html">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div id="prog" aria-hidden="true"></div>
+<header><div class="wrap"><a class="logo" href="index.html"><img class="lm" src="logo-mark.png" alt="" width="53" height="34"><span class="wm">IndiCloud<i>AI</i></span></a><nav aria-label="Main"><a href="index.html">Home</a><a href="products.html">Product</a><a href="playground.html" aria-current="page">Playground</a><a href="technology.html">Technology</a><a href="security.html">Security</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav><button id="theme" class="tbtn" type="button" aria-label="Switch light or dark theme">◐</button></div></header>
+<main id="main">
+<div class="wrap ph"><h1>Try the model.</h1><p class="lead">Type or paste a message and see how Antahpragna classifies it. This is a live preview of the model behind the Android app.</p></div>
+<section style="padding-top:1rem"><div class="wrap">
+<div class="note"><strong>Before you try it</strong>Text you submit is sent to a preview server outside India (currently <span class="pg-region">Singapore</span>) to be classified. Our service does not store it or use it for training. Please use the sample messages or text that contains no personal information. The model is an aid and can be wrong. Read the <a href="model-card.html">model card</a> for its limits.</div>
+<div class="pg-grid">
+<div class="pg-card"><div class="pg-pill wait" id="pg-pill" role="status"><span>Connecting…</span></div>
+<h2>Message</h2>
+<textarea id="pg-text" maxlength="1000" placeholder="Paste a message here, in any of the supported languages…" aria-label="Message to analyse"></textarea>
+<div class="pg-row"><span>Try a sample (made up for this demo)</span><span id="pg-count">0 / 1000</span></div>
+<div class="pg-samples"><button type="button" class="pg-sample" data-t="Your KYC will expire today. Click this link to update now: http://kyc-update.example">KYC</button><button type="button" class="pg-sample" data-t="Your refund of Rs 4,850 is pending. Open the link and enter your UPI PIN to receive it: http://refund-claim.example">UPI refund</button><button type="button" class="pg-sample" data-t="Congratulations! You have won Rs 25,00,000 in the lucky draw. Send Rs 2,500 as a processing fee to claim your prize.">Lottery</button><button type="button" class="pg-sample" data-t="Your parcel is on hold due to an unpaid customs fee of Rs 49. Pay now: http://parcel-fee.example">Delivery</button><button type="button" class="pg-sample" data-t="Work from home and earn Rs 5,000 per day. Message us on WhatsApp now to start, small registration fee applies.">Job offer</button><button type="button" class="pg-sample" data-t="आपका KYC आज समाप्त हो जाएगा। अपडेट करने के लिए इस लिंक पर क्लिक करें: http://kyc-update.example">Hindi KYC</button><button type="button" class="pg-sample" data-t="మీ KYC ఈ రోజు గడువు ముగుస్తుంది. వెంటనే ఈ లింక్ క్లిక్ చేసి అప్‌డేట్ చేయండి: http://kyc-update.example">Telugu KYC</button><button type="button" class="pg-sample" data-t="Hi, are we still meeting for lunch tomorrow at 1? Let me know if the place works.">Normal message</button></div>
+<label class="pg-ok"><input type="checkbox" id="pg-ok"><span>I understand my text is sent to the preview server in <span class="pg-region">Singapore</span> to be analysed.</span></label>
+<button id="pg-go" type="button" disabled>Analyse message</button></div>
+<div class="pg-card" aria-live="polite"><h2>Result</h2>
+<div class="pg-empty" id="pg-empty">The verdict, confidence and top categories will appear here.</div>
+<div class="pg-res" id="pg-res" hidden><div class="pg-title"></div><div class="pg-cat"></div>
+<div class="pg-conf"><span>Scam probability</span><b></b></div><span class="pg-meter"><i></i></span>
+<div class="pg-adv"></div><ul class="pg-top"></ul><p class="pg-meta"></p></div></div>
+</div></div></section>
+<section class="band"><div class="wrap"><h2>Want this in your product?</h2><p>We can run the model for your use case, on device or in an Indian cloud region.</p><div class="btns"><a class="btn" href="contact.html">Talk to us</a></div></div></section>
+</main>
+<footer><div class="wrap">
+<div class="fg">
+<div><a class="ft-logo" href="index.html"><img src="logo.png" alt="IndiCloudAI: Innovation, Cloud, Intelligence" width="152" height="124"></a><p>Domain-expert AI built and hosted in India. Telangana, India.</p></div>
+<div><h3>Company</h3><a href="about.html">About</a><a href="products.html">Product</a><a href="playground.html">Playground</a><a href="technology.html">Technology</a><a href="security.html">Security</a></div>
+<div><h3>Resources</h3><a href="model-card.html">Model card</a><a href="brand.html">Brand kit</a></div>
+<div><h3>Legal</h3><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of use</a></div>
+<div><h3>Connect</h3><a href="mailto:saidatta@indicloudai.in">saidatta@indicloudai.in</a><a href="https://www.linkedin.com/in/saidatta-veligeti-666802217" rel="noopener" target="_blank">Founder on LinkedIn</a></div>
+</div>
+<div class="fb">© <span id="y">2026</span> IndiCloudAI. All rights reserved.</div>
+</div></footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+<button id="totop" class="totop" type="button" aria-label="Back to top">↑</button>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="config.js"></script>
+<script src="playground.js" defer></script>
+<script src="site.js" defer></script>
+</body>
+</html>

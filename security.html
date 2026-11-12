@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data residency and security | IndiCloudAI</title>
+<meta name="description" content="How IndiCloudAI keeps data in India and approaches security, privacy and compliance.">
+<link rel="canonical" href="https://indicloudai.in/security.html">
+<meta property="og:image" content="https://indicloudai.in/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b6e7a">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="IndiCloudAI">
+<meta property="og:title" content="Data residency and security | IndiCloudAI">
+<meta property="og:description" content="How IndiCloudAI keeps data in India and approaches security, privacy and compliance.">
+<meta property="og:url" content="https://indicloudai.in/security.html">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div id="prog" aria-hidden="true"></div>
+<header><div class="wrap"><a class="logo" href="index.html"><img class="lm" src="logo-mark.png" alt="" width="53" height="34"><span class="wm">IndiCloud<i>AI</i></span></a><nav aria-label="Main"><a href="index.html">Home</a><a href="products.html">Product</a><a href="playground.html">Playground</a><a href="technology.html">Technology</a><a href="security.html" aria-current="page">Security</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav><button id="theme" class="tbtn" type="button" aria-label="Switch light or dark theme">◐</button></div></header>
+<main id="main">
+<div class="wrap ph"><h1>Data stays in India by design.</h1><p class="lead">Privacy and security are part of how we build, not an add-on. This page explains what we do and what we do not yet claim.</p></div>
+<section class="t"><div class="wrap"><h2 class="h">Data residency</h2>
+<dl><dt>On-device first</dt><dd>Where possible, inference runs on the user’s own device, so there is nothing to transmit or store.</dd>
+<dt>India-resident cloud</dt><dd>Our production design runs any cloud workload in Indian regions, so training data, prompts and outputs remain in the country. The public playground preview currently runs on a demo server in Singapore, and we plan to move it to an Indian region.</dd>
+<dt>Data minimisation</dt><dd>We collect only what a feature needs and do not sell personal data.</dd></dl></div></section>
+<section><div class="wrap"><h2 class="h">Security practices</h2>
+<dl><dt>Identity and access</dt><dd>Least-privilege roles, multi-factor authentication and Zero Trust principles across all environments.</dd>
+<dt>Encryption</dt><dd>TLS for data in transit and encryption at rest for stored data.</dd>
+<dt>Secure development</dt><dd>Code review, dependency checks and a pre-release test suite before every model or app release.</dd>
+<dt>Transparency</dt><dd>Apps explain each permission before requesting it.</dd></dl></div></section>
+<section class="t"><div class="wrap"><h2 class="h">Compliance position</h2>
+<p>We design with India’s Digital Personal Data Protection Act, 2023 in mind and support the rights it gives individuals. IndiCloudAI is an early-stage company and does not yet hold formal certifications such as ISO/IEC 27001 or SOC 2. We will say so on this page when that changes.</p></div></section>
+<section><div class="wrap"><h2 class="h">Report a vulnerability</h2>
+<p>If you find a security issue in our website or apps, email <a href="mailto:saidatta@indicloudai.in">saidatta@indicloudai.in</a> with the details. Please give us reasonable time to fix it before sharing it publicly. Our contact details are also in <a href="/.well-known/security.txt">security.txt</a>.</p></div></section>
+<section class="band"><div class="wrap"><h2>Work with IndiCloudAI</h2><p>Pilots, partnerships, research collaborations and investor enquiries are welcome.</p><div class="btns"><a class="btn" href="contact.html">Contact us</a></div></div></section>
+</main>
+<footer><div class="wrap">
+<div class="fg">
+<div><a class="ft-logo" href="index.html"><img src="logo.png" alt="IndiCloudAI: Innovation, Cloud, Intelligence" width="152" height="124"></a><p>Domain-expert AI built and hosted in India. Telangana, India.</p></div>
+<div><h3>Company</h3><a href="about.html">About</a><a href="products.html">Product</a><a href="technology.html">Technology</a><a href="security.html">Security</a></div>
+<div><h3>Resources</h3><a href="model-card.html">Model card</a><a href="brand.html">Brand kit</a></div>
+<div><h3>Legal</h3><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of use</a></div>
+<div><h3>Connect</h3><a href="mailto:saidatta@indicloudai.in">saidatta@indicloudai.in</a><a href="https://www.linkedin.com/in/saidatta-veligeti-666802217" rel="noopener" target="_blank">Founder on LinkedIn</a></div>
+</div>
+<div class="fb">© <span id="y">2026</span> IndiCloudAI. All rights reserved.</div>
+</div></footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+<button id="totop" class="totop" type="button" aria-label="Back to top">↑</button>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="site.js" defer></script>
+</body>
+</html>
