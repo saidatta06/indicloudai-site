@@ -51,12 +51,29 @@
 <tr><th scope="row">Hosted inference and APIs</th><td>Planned offering for enterprise and partner use</td></tr>
 <tr><th scope="row">Monitoring</th><td>Model performance, drift and security alerts</td></tr></tbody></table></div>
 <p class="m" style="margin-top:1rem">Target regions include AWS Mumbai and Hyderabad, Azure Central India and South India, and Google Cloud Mumbai and Delhi.</p></div></section>
+<section><div class="wrap two"><div><span class="st next">Next</span><h2 class="h">Developer API and playground.</h2>
+<p>We plan to host the model behind a REST API in Indian cloud regions, with a web playground where developers can test a message and see the model’s verdict.</p>
+<p>Our aim is not to store submitted text. We will publish exactly how the service handles it before it launches. Until then, see the <a href="model-card.html">model card</a> for what the model is and where it falls short.</p></div>
+<div><pre class="code" aria-label="Illustrative API request and response"><span class="c"># Illustrative format only. Not a live endpoint.</span>
+<span class="k">POST</span> /v1/classify
+{
+  <span class="s">"text"</span>: <span class="s">"Your KYC expires today. Update now."</span>,
+  <span class="s">"language"</span>: <span class="s">"auto"</span>
+}
+
+<span class="c"># Response</span>
+{
+  <span class="s">"label"</span>: <span class="s">"kyc_fraud"</span>,
+  <span class="s">"confidence"</span>: <span class="s">0.97</span>,
+  <span class="s">"latency_ms"</span>: <span class="s">18</span>
+}</pre></div></div></section>
 <section class="band"><div class="wrap"><h2>Work with IndiCloudAI</h2><p>Pilots, partnerships, research collaborations and investor enquiries are welcome.</p><div class="btns"><a class="btn" href="contact.html">Contact us</a></div></div></section>
 </main>
 <footer><div class="wrap">
 <div class="fg">
 <div><a class="ft-logo" href="index.html"><img src="logo.png" alt="IndiCloudAI: Innovation, Cloud, Intelligence" width="152" height="124"></a><p>Domain-expert AI built and hosted in India. Telangana, India.</p></div>
 <div><h3>Company</h3><a href="about.html">About</a><a href="products.html">Product</a><a href="technology.html">Technology</a><a href="security.html">Security</a></div>
+<div><h3>Resources</h3><a href="model-card.html">Model card</a><a href="brand.html">Brand kit</a></div>
 <div><h3>Legal</h3><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of use</a></div>
 <div><h3>Connect</h3><a href="mailto:saidatta@indicloudai.in">saidatta@indicloudai.in</a><a href="https://www.linkedin.com/in/saidatta-veligeti-666802217" rel="noopener" target="_blank">Founder on LinkedIn</a></div>
 </div>
