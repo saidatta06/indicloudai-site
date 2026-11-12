@@ -3,6 +3,6 @@
    for example: "https://antahpragna-api.onrender.com" (no trailing slash).
    Leave it empty to show "launching soon". */
 window.IC_PLAYGROUND = {
-  api: "",
+  api: "https://antahpragna-api.onrender.com/",
   region: "Singapore"
 };
