@@ -28,14 +28,15 @@
 <header><div class="wrap"><a class="logo" href="index.html"><img class="lm" src="logo-mark.png" alt="" width="53" height="34"><span class="wm">IndiCloud<i>AI</i></span></a><nav aria-label="Main"><a href="index.html">Home</a><a href="products.html">Product</a><a href="playground.html">Playground</a><a href="technology.html">Technology</a><a href="security.html">Security</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav><button id="theme" class="tbtn" type="button" aria-label="Switch light or dark theme">◐</button></div></header>
 <main id="main">
 <div class="wrap ph"><h1>Antahpragna model card.</h1><p class="lead">A plain account of what the model is, how it was built and tested, and where it falls short.</p></div>
-<section><div class="wrap"><div class="mc-hd"><span>Task: scam message classification</span><span>13 Indian languages</span><span>32 categories</span><span>On-device, Android</span><span>Last updated: November 2026</span></div>
+<section><div class="wrap"><div class="mc-hd"><span>Task: scam message classification</span><span>13 Indian languages</span><span>43 classes (31 scam, 12 safe)</span><span>On-device, Android</span><span>Last updated: November 2026</span></div>
 <h2 class="h" style="margin-top:2rem">Model details</h2>
 <dl><dt>Name</dt><dd>Antahpragna on-device classifier</dd>
 <dt>Architecture</dt><dd>Student model distilled from a 506 million parameter MuRIL teacher. The student has 55.4 million parameters.</dd>
 <dt>Training method</dt><dd>Knowledge distillation with temperature scaling and a combined KL-divergence and cross-entropy loss.</dd>
-<dt>Deployment format</dt><dd>ONNX, INT8 quantised, with NNAPI FP16 acceleration on supported Android devices.</dd>
-<dt>Output</dt><dd>One of 32 scam categories for an input message, with the app’s risk verdict built on top.</dd>
-<dt>Languages</dt><dd>13 Indian languages.</dd></dl></div></section>
+<dt>Deployment format</dt><dd>ONNX with 32-bit float weights (about 222 MB), with NNAPI FP16 acceleration on supported Android devices.</dd>
+<dt>Output</dt><dd>A probability for each of 43 classes: 31 scam types and 12 safe types (for example normal bank alerts, one-time-code messages and everyday chat). The risk level, the reasons and the advice shown to the user are built on top of these probabilities.</dd>
+<dt>Languages</dt><dd>13 Indian languages.</dd>
+<dt>Versions</dt><dd>The web playground runs a newer research version (v5d). It was retrained with additional real and synthetic messages, finance conversations, adversarial examples and a fake-link check. The installed app may run an earlier version until it is updated.</dd></dl></div></section>
 <section><div class="wrap"><h2 class="h">Intended use</h2>
 <div class="cols" style="counter-reset:none"><div><h3>In scope</h3><p>Helping individuals notice likely scam messages in SMS, messaging apps, links and UPI requests, so they can pause before they act.</p></div>
 <div><h3>Out of scope</h3><p>Legal or forensic decisions, enforcement against individuals, bulk surveillance of messages, or any use that removes human judgement.</p></div>
@@ -43,15 +44,19 @@
 <section><div class="wrap"><h2 class="h">Evaluation</h2>
 <div class="scroll"><table><thead><tr><th scope="col">Measure</th><th scope="col">Result</th><th scope="col">What it means</th></tr></thead><tbody>
 <tr><th scope="row">Validation accuracy</th><td>99.68%</td><td>Measured on our held-out validation set.</td></tr>
+<tr><th scope="row">Independent real-message test (v5d)</th><td>About 84% of scams caught; about 5% of normal messages wrongly flagged</td><td>Measured on about 870 messages from public SMS datasets that were not used for training.</td></tr>
+<tr><th scope="row">Attack test (v5d)</th><td>About 83% of scams still caught</td><td>1,020 disguised variants: friendly padding, scams hidden among harmless text, look-alike letters, invisible characters, ALL CAPS.</td></tr>
 <tr><th scope="row">Pre-release test suite</th><td>138 cases</td><td>Hand-built cases covering tech-support, delivery and KYC scams and minority-language patterns.</td></tr></tbody></table></div>
-<div class="note"><strong>Read the 99.68% carefully.</strong>It is a validation score. Real-world accuracy can be lower, especially for new scam patterns and under-represented languages. That is why we keep a separate test suite and publish its findings.</div></div></section>
+<div class="note"><strong>Read the 99.68% carefully.</strong>It is a score on our own held-out validation set. On independent real-world messages the measured result is lower, as the v5d rows above show. Real-world accuracy can also be lower for new scam patterns and under-represented languages. That is why we keep a separate test suite and publish its findings.</div></div></section>
 <section><div class="wrap"><h2 class="h">Known limitations</h2>
 <ul class="prin"><li><strong>Weak spots found in testing</strong>Tech-support scams, delivery scams and some minority-language patterns were weaker areas in pre-release testing, and KYC scams were sometimes misclassified.</li>
 <li><strong>False positives</strong>System notifications triggered false alarms in testing. We reduced this with a package-name whitelist. Some false positives can still occur.</li>
+<li><strong>Normal talk about money</strong>Everyday conversations about savings or investing can still be scored as risky. The playground shows a cautious “Low risk” or “Risky” answer for these instead of a firm “scam” verdict.</li>
+<li><strong>Scams without a link, number or payment request</strong>These are harder to recognise. About 16% of scams were missed in independent testing.</li>
 <li><strong>New scams</strong>Scammers change wording quickly. A message the model has not seen the pattern of may be missed, so the app is an aid and not a guarantee.</li></ul></div></section>
 <section><div class="wrap"><h2 class="h">Privacy and data handling</h2>
 <p>Analysis runs on the user’s own device. Message contents are not sent to our servers. Background scanning uses Android’s notification and accessibility services for this purpose only. See our <a href="privacy.html">privacy policy</a> and <a href="security.html">security page</a>.</p>
-<p>The web <a href="playground.html">playground</a> sends the text you submit to a preview server outside India (currently Singapore) to be classified. Our service does not store it or use it for training. We plan to move the preview to an Indian cloud region.</p>
+<p>The web <a href="playground.html">playground</a> sends the text you submit to a preview server outside India (currently Singapore) to be classified. Our service does not store it or use it for training, unless you choose to send optional feedback with “share this message” ticked (see the privacy policy). We plan to move the preview to an Indian cloud region.</p>
 <p class="m">Questions or corrections: <a href="mailto:saidatta@indicloudai.in">saidatta@indicloudai.in</a></p></div></section>
 <section class="band"><div class="wrap"><h2>Work with IndiCloudAI</h2><p>Pilots, partnerships, research collaborations and investor enquiries are welcome.</p><div class="btns"><a class="btn" href="contact.html">Contact us</a></div></div></section>
 </main>
