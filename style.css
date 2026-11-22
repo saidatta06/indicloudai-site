@@ -306,3 +306,5 @@ nav{scrollbar-width:none}nav::-webkit-scrollbar{display:none}
 .pg-fbc input{margin-top:.2rem;width:1.05rem;height:1.05rem;accent-color:var(--brand)}
 #pg-fb-note{width:100%;margin-top:.6rem;min-height:3.4rem;border:1px solid var(--line);border-radius:.8rem;padding:.6rem .8rem;font:500 .9rem/1.4 var(--f);color:var(--ink);background:var(--pane)}
 #pg-fb-note[hidden],.pg-why[hidden],.pg-do[hidden],.pg-fb[hidden],.pg-focus[hidden],#pg-fb-thanks[hidden],#pg-fb-q[hidden]{display:none}
+
+.addr{display:block;white-space:pre-line;font-size:.9rem;opacity:.85;margin-top:.3rem}.addr[hidden]{display:none}

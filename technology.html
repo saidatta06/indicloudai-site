@@ -37,7 +37,7 @@
 <section><div class="wrap"><h2 class="h">Our model pipeline</h2>
 <ol class="steps"><li><strong>Start with an Indic teacher</strong><span>A multilingual model that understands Indian languages.</span></li>
 <li><strong>Distil to a student</strong><span>Knowledge distillation with temperature scaling and a combined KL and cross-entropy loss.</span></li>
-<li><strong>Quantise and export</strong><span>INT8 ONNX keeps accuracy while cutting size and compute.</span></li>
+<li><strong>Export to ONNX</strong><span>A portable format that runs on Android and on servers, with hardware acceleration where available.</span></li>
 <li><strong>Test before release</strong><span>A 138-case suite exposes blind spots before users do.</span></li></ol></div></section>
 <section class="t"><div class="wrap"><h2 class="h">How testing shapes the model</h2>
 <p>Our pre-release suite found weak spots in tech-support, delivery and minority-language scam patterns, and a tendency to misclassify KYC scams. We also found false positives from system notifications and fixed them with a package-name whitelist. We publish this because honest evaluation is part of building a reliable domain model.</p></div></section>
@@ -69,20 +69,28 @@
   <span class="s">"latency_ms"</span>: <span class="s">18</span>
 }</pre></div></div></section>
 <section class="band"><div class="wrap"><h2>Work with IndiCloudAI</h2><p>Pilots, partnerships, research collaborations and investor enquiries are welcome.</p><div class="btns"><a class="btn" href="contact.html">Contact us</a></div></div></section>
+<section><div class="wrap"><h2 class="h">Safeguards around the model.</h2><ul class="prin">
+<li><strong>Checks every sentence</strong>Long or padded messages are also scored in parts, so harmless text around a scam cannot hide it.</li>
+<li><strong>Text clean-up</strong>Invisible characters, look-alike letters, spaced-out words and ALL CAPS are normalised before scoring.</li>
+<li><strong>Fake-link check</strong>Links are compared with about 150 official domains, so a look-alike address such as a fake bank site is called out.</li>
+<li><strong>Clear answers</strong>Five risk levels, the reasons, the riskiest sentence and next steps, in English and Hindi.</li>
+<li><strong>Honest reliability</strong>Each answer says how often that kind of result was right in our tests, per scam type.</li>
+<li><strong>Learning loop</strong>Optional user feedback is reviewed every week, and a new model is released only if it passes a regression gate.</li></ul>
+<p class="note">These safeguards run in the web playground (model v5d) and are being rolled into the app.</p></div></section>
 </main>
 <footer><div class="wrap">
 <div class="fg">
-<div><a class="ft-logo" href="index.html"><img src="logo.png" alt="IndiCloudAI: Innovation, Cloud, Intelligence" width="152" height="124"></a><p>Domain-expert AI built and hosted in India. Telangana, India.</p></div>
+<div><a class="ft-logo" href="index.html"><img src="logo.png" alt="IndiCloudAI: Innovation, Cloud, Intelligence" width="152" height="124"></a><p>Domain-expert AI built and hosted in India.</p></div>
 <div><h3>Company</h3><a href="about.html">About</a><a href="products.html">Product</a><a href="technology.html">Technology</a><a href="security.html">Security</a></div>
 <div><h3>Resources</h3><a href="model-card.html">Model card</a><a href="brand.html">Brand kit</a></div>
 <div><h3>Legal</h3><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of use</a></div>
-<div><h3>Connect</h3><a href="mailto:saidatta@indicloudai.in">saidatta@indicloudai.in</a><a href="https://www.linkedin.com/in/saidatta-veligeti-666802217" rel="noopener" target="_blank">Founder on LinkedIn</a></div>
+<div><h3>Connect</h3><a href="mailto:dev@indicloudai.in">dev@indicloudai.in</a><a href="https://www.linkedin.com/company/indicloudai/" rel="noopener" target="_blank">Follow us on LinkedIn</a><span class="addr" data-addr hidden></span></div>
 </div>
 <div class="fb">© <span id="y">2026</span> IndiCloudAI. All rights reserved.</div>
 </div></footer>
 <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 <button id="totop" class="totop" type="button" aria-label="Back to top">↑</button>
 <div id="toast" role="status" aria-live="polite"></div>
-<script src="site.js" defer></script>
+<script src="config.js"></script><script src="site.js" defer></script>
 </body>
 </html>

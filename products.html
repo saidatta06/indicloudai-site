@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Antahpragna — Offline scam detection for Android | IndiCloudAI</title>
-<meta name="description" content="Antahpragna detects scams in 13 Indian languages on the phone itself, with no internet and no message leaving the device.">
+<meta name="description" content="Antahpragna detects scams in 11 Indian languages on the phone itself, with no internet and no message leaving the device.">
 <link rel="canonical" href="https://indicloudai.in/products.html">
 <meta property="og:image" content="https://indicloudai.in/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="IndiCloudAI">
 <meta property="og:title" content="Antahpragna — Offline scam detection for Android | IndiCloudAI">
-<meta property="og:description" content="Antahpragna detects scams in 13 Indian languages on the phone itself, with no internet and no message leaving the device.">
+<meta property="og:description" content="Antahpragna detects scams in 11 Indian languages on the phone itself, with no internet and no message leaving the device.">
 <meta property="og:url" content="https://indicloudai.in/products.html">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -28,7 +28,7 @@
  "name": "Antahpragna",
  "applicationCategory": "SecurityApplication",
  "operatingSystem": "Android",
- "description": "Offline scam detection for Android that analyses messages on the phone in 13 Indian languages.",
+ "description": "Offline scam detection for Android that analyses messages on the phone in 11 Indian languages.",
  "publisher": {
   "@type": "Organization",
   "name": "IndiCloudAI",
@@ -43,14 +43,14 @@
 <header><div class="wrap"><a class="logo" href="index.html"><img class="lm" src="logo-mark.png" alt="" width="53" height="34"><span class="wm">IndiCloud<i>AI</i></span></a><nav aria-label="Main"><a href="index.html">Home</a><a href="products.html" aria-current="page">Product</a><a href="playground.html">Playground</a><a href="technology.html">Technology</a><a href="security.html">Security</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav><button id="theme" class="tbtn" type="button" aria-label="Switch light or dark theme">◐</button></div></header>
 <main id="main">
 <div class="wrap ph"><h1>Antahpragna: offline scam detection for Android.</h1><p class="lead">Scams in India arrive as SMS, WhatsApp messages, links and UPI requests, in many languages. Antahpragna analyses them on the phone and warns you before you act.</p></div>
-<section class="t"><div class="wrap two"><div><h2 class="h">What it does</h2><ul class="feat"><li><strong>UPI Risk Checker</strong>Checks a payment request before you pay.</li><li><strong>Link Scanner</strong>Flags suspicious links in messages.</li><li><strong>Clipboard Auto-Scan</strong>Checks copied text for scam patterns.</li><li><strong>Family Protection Mode</strong>Extra safeguards for parents and elders.</li><li><strong>Emergency Screen</strong>Clear next steps if you have already been targeted.</li></ul></div><div><h2 class="h">Why on-device</h2><p>The model runs entirely on the phone. It works without internet, responds instantly, and message contents are not sent to our servers.</p><div class="stats"><div><strong>13</strong><small>Indian languages</small></div><div><strong>32</strong><small>scam categories</small></div><div><strong>99.68%</strong><small>validation accuracy</small></div></div></div></div></section>
+<section class="t"><div class="wrap two"><div><h2 class="h">What it does</h2><ul class="feat"><li><strong>UPI Risk Checker</strong>Checks a payment request before you pay.</li><li><strong>Link Scanner</strong>Flags suspicious links in messages.</li><li><strong>Clipboard Auto-Scan</strong>Checks copied text for scam patterns.</li><li><strong>Family Protection Mode</strong>Extra safeguards for parents and elders.</li><li><strong>Emergency Screen</strong>Clear next steps if you have already been targeted.</li></ul></div><div><h2 class="h">Why on-device</h2><p>The model runs entirely on the phone. It works without internet, responds instantly, and message contents are not sent to our servers.</p><div class="stats"><div><strong>11</strong><small>Indian languages</small></div><div><strong>31</strong><small>scam types</small></div><div><strong>84%</strong><small>scams caught, independent tests</small></div></div></div></div></section>
 <section><div class="wrap"><h2 class="h">Technical specification</h2>
 <div class="scroll"><table><tbody>
 <tr><th scope="row">Platform</th><td>Android (Kotlin, Jetpack Compose)</td></tr>
 <tr><th scope="row">Model size</th><td>55.4 million parameters, distilled from a 506 million parameter MuRIL teacher</td></tr>
-<tr><th scope="row">Format</th><td>ONNX, INT8 quantised, with NNAPI FP16 acceleration on supported devices</td></tr>
-<tr><th scope="row">Coverage</th><td>13 Indian languages, 32 scam categories</td></tr>
-<tr><th scope="row">Validation accuracy</th><td>99.68% on our held-out validation set</td></tr>
+<tr><th scope="row">Format</th><td>ONNX with 32-bit float weights (about 222 MB), with NNAPI FP16 acceleration on supported devices</td></tr>
+<tr><th scope="row">Coverage</th><td>English, Hinglish and 11 Indian languages. 43 classes: 31 scam types and 12 safe types</td></tr>
+<tr><th scope="row">Validation accuracy</th><td>99.68% on our own held-out validation set (easier than real messages)</td></tr><tr><th scope="row">Independent real-message test</th><td>About 84% of scams caught; about 5% of normal messages wrongly flagged (about 870 messages from public SMS datasets, latest research model v5d)</td></tr>
 <tr><th scope="row">Pre-release testing</th><td>138-case test suite covering tech-support, delivery, KYC and minority-language scam patterns</td></tr>
 </tbody></table></div></div></section>
 <section class="t"><div class="wrap"><h2 class="h">Permissions and transparency</h2>
@@ -60,17 +60,17 @@
 </main>
 <footer><div class="wrap">
 <div class="fg">
-<div><a class="ft-logo" href="index.html"><img src="logo.png" alt="IndiCloudAI: Innovation, Cloud, Intelligence" width="152" height="124"></a><p>Domain-expert AI built and hosted in India. Telangana, India.</p></div>
+<div><a class="ft-logo" href="index.html"><img src="logo.png" alt="IndiCloudAI: Innovation, Cloud, Intelligence" width="152" height="124"></a><p>Domain-expert AI built and hosted in India.</p></div>
 <div><h3>Company</h3><a href="about.html">About</a><a href="products.html">Product</a><a href="playground.html">Playground</a><a href="technology.html">Technology</a><a href="security.html">Security</a></div>
 <div><h3>Resources</h3><a href="model-card.html">Model card</a><a href="brand.html">Brand kit</a></div>
 <div><h3>Legal</h3><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of use</a></div>
-<div><h3>Connect</h3><a href="mailto:saidatta@indicloudai.in">saidatta@indicloudai.in</a><a href="https://www.linkedin.com/in/saidatta-veligeti-666802217" rel="noopener" target="_blank">Founder on LinkedIn</a></div>
+<div><h3>Connect</h3><a href="mailto:dev@indicloudai.in">dev@indicloudai.in</a><a href="https://www.linkedin.com/company/indicloudai/" rel="noopener" target="_blank">Follow us on LinkedIn</a><span class="addr" data-addr hidden></span></div>
 </div>
 <div class="fb">© <span id="y">2026</span> IndiCloudAI. All rights reserved.</div>
 </div></footer>
 <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 <button id="totop" class="totop" type="button" aria-label="Back to top">↑</button>
 <div id="toast" role="status" aria-live="polite"></div>
-<script src="site.js" defer></script>
+<script src="config.js"></script><script src="site.js" defer></script>
 </body>
 </html>

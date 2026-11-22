@@ -28,15 +28,17 @@
 <header><div class="wrap"><a class="logo" href="index.html"><img class="lm" src="logo-mark.png" alt="" width="53" height="34"><span class="wm">IndiCloud<i>AI</i></span></a><nav aria-label="Main"><a href="index.html">Home</a><a href="products.html">Product</a><a href="playground.html">Playground</a><a href="technology.html">Technology</a><a href="security.html">Security</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav><button id="theme" class="tbtn" type="button" aria-label="Switch light or dark theme">◐</button></div></header>
 <main id="main">
 <div class="wrap ph"><h1>Antahpragna model card.</h1><p class="lead">A plain account of what the model is, how it was built and tested, and where it falls short.</p></div>
-<section><div class="wrap"><div class="mc-hd"><span>Task: scam message classification</span><span>13 Indian languages</span><span>43 classes (31 scam, 12 safe)</span><span>On-device, Android</span><span>Last updated: November 2026</span></div>
+<section><div class="wrap"><div class="mc-hd"><span>Task: scam message classification</span><span>11 Indian languages</span><span>43 classes (31 scam, 12 safe)</span><span>On-device, Android</span><span>Last updated: November 2026</span></div>
 <h2 class="h" style="margin-top:2rem">Model details</h2>
 <dl><dt>Name</dt><dd>Antahpragna on-device classifier</dd>
 <dt>Architecture</dt><dd>Student model distilled from a 506 million parameter MuRIL teacher. The student has 55.4 million parameters.</dd>
 <dt>Training method</dt><dd>Knowledge distillation with temperature scaling and a combined KL-divergence and cross-entropy loss.</dd>
 <dt>Deployment format</dt><dd>ONNX with 32-bit float weights (about 222 MB), with NNAPI FP16 acceleration on supported Android devices.</dd>
 <dt>Output</dt><dd>A probability for each of 43 classes: 31 scam types and 12 safe types (for example normal bank alerts, one-time-code messages and everyday chat). The risk level, the reasons and the advice shown to the user are built on top of these probabilities.</dd>
-<dt>Languages</dt><dd>13 Indian languages.</dd>
-<dt>Versions</dt><dd>The web playground runs a newer research version (v5d). It was retrained with additional real and synthetic messages, finance conversations, adversarial examples and a fake-link check. The installed app may run an earlier version until it is updated.</dd></dl></div></section>
+<dt>Languages</dt><dd>English, Hinglish and 11 Indian languages: Hindi, Telugu, Tamil, Kannada, Malayalam, Bengali, Marathi, Gujarati, Punjabi, Odia and Urdu, including romanised text. Answers are available in English and Hindi.</dd>
+<dt>Versions</dt><dd>The web playground runs a newer research version (v5d). It was retrained with additional real and synthetic messages, finance conversations, adversarial examples and a fake-link check. The installed app may run an earlier version until it is updated.</dd>
+<dt>Architecture</dt><dd>6-layer transformer, hidden size 256, 8 attention heads, 55.4 million parameters, cased WordPiece vocabulary of 197,285 tokens, 128-token input limit. Longer or padded messages are also checked in parts.</dd>
+<dt>Safeguards</dt><dd>Sentence-level scanning, text normalisation (invisible characters, look-alike letters, ALL CAPS), a fake-link check against about 150 official domains, plain-language answers with reasons and steps, per-type reliability statements, and a weekly review and release gate for every new model.</dd></dl></div></section>
 <section><div class="wrap"><h2 class="h">Intended use</h2>
 <div class="cols" style="counter-reset:none"><div><h3>In scope</h3><p>Helping individuals notice likely scam messages in SMS, messaging apps, links and UPI requests, so they can pause before they act.</p></div>
 <div><h3>Out of scope</h3><p>Legal or forensic decisions, enforcement against individuals, bulk surveillance of messages, or any use that removes human judgement.</p></div>
@@ -57,22 +59,22 @@
 <section><div class="wrap"><h2 class="h">Privacy and data handling</h2>
 <p>Analysis runs on the user’s own device. Message contents are not sent to our servers. Background scanning uses Android’s notification and accessibility services for this purpose only. See our <a href="privacy.html">privacy policy</a> and <a href="security.html">security page</a>.</p>
 <p>The web <a href="playground.html">playground</a> sends the text you submit to a preview server outside India (currently Singapore) to be classified. Our service does not store it or use it for training, unless you choose to send optional feedback with “share this message” ticked (see the privacy policy). We plan to move the preview to an Indian cloud region.</p>
-<p class="m">Questions or corrections: <a href="mailto:saidatta@indicloudai.in">saidatta@indicloudai.in</a></p></div></section>
+<p class="m">Questions or corrections: <a href="mailto:dev@indicloudai.in">dev@indicloudai.in</a></p></div></section>
 <section class="band"><div class="wrap"><h2>Work with IndiCloudAI</h2><p>Pilots, partnerships, research collaborations and investor enquiries are welcome.</p><div class="btns"><a class="btn" href="contact.html">Contact us</a></div></div></section>
 </main>
 <footer><div class="wrap">
 <div class="fg">
-<div><a class="ft-logo" href="index.html"><img src="logo.png" alt="IndiCloudAI: Innovation, Cloud, Intelligence" width="152" height="124"></a><p>Domain-expert AI built and hosted in India. Telangana, India.</p></div>
+<div><a class="ft-logo" href="index.html"><img src="logo.png" alt="IndiCloudAI: Innovation, Cloud, Intelligence" width="152" height="124"></a><p>Domain-expert AI built and hosted in India.</p></div>
 <div><h3>Company</h3><a href="about.html">About</a><a href="products.html">Product</a><a href="technology.html">Technology</a><a href="security.html">Security</a></div>
 <div><h3>Resources</h3><a href="model-card.html">Model card</a><a href="brand.html">Brand kit</a></div>
 <div><h3>Legal</h3><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of use</a></div>
-<div><h3>Connect</h3><a href="mailto:saidatta@indicloudai.in">saidatta@indicloudai.in</a><a href="https://www.linkedin.com/in/saidatta-veligeti-666802217" rel="noopener" target="_blank">Founder on LinkedIn</a></div>
+<div><h3>Connect</h3><a href="mailto:dev@indicloudai.in">dev@indicloudai.in</a><a href="https://www.linkedin.com/company/indicloudai/" rel="noopener" target="_blank">Follow us on LinkedIn</a><span class="addr" data-addr hidden></span></div>
 </div>
 <div class="fb">© <span id="y">2026</span> IndiCloudAI. All rights reserved.</div>
 </div></footer>
 <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 <button id="totop" class="totop" type="button" aria-label="Back to top">↑</button>
 <div id="toast" role="status" aria-live="polite"></div>
-<script src="site.js" defer></script>
+<script src="config.js"></script><script src="site.js" defer></script>
 </body>
 </html>

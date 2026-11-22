@@ -86,3 +86,5 @@ var st=$('.stage'),p=$('#phone');
 if(st&&p){onMove(st,function(a,b){p.style.setProperty('--ry',(-18+a*24)+'deg');p.style.setProperty('--rx',(6-b*16)+'deg');st.style.setProperty('--px',a);st.style.setProperty('--py',b)});
   st.addEventListener('pointerleave',function(){p.style.removeProperty('--ry');p.style.removeProperty('--rx');st.style.setProperty('--px',0);st.style.setProperty('--py',0)})}
 })();
+
+;(function(){var A=(window.IC_COMPANY&&window.IC_COMPANY.address)||'';if(!A)return;document.querySelectorAll('[data-addr]').forEach(function(e){e.textContent=A;e.hidden=false})})();
