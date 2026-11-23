@@ -27,12 +27,14 @@
   var TXT = {
     en: { title: "Why this result", main: "Main trigger", adds: "Adds to the risk", fine: "Not a concern", working: "Working out why\u2026",
           legend: "Underlined words are warning signs; hover or tap one to see why.", quiet: "The model sees almost no scam signal in this message as a whole, so nothing is highlighted as a trigger.",
+          guardTx: "This looks like a normal bank transaction alert with no links, phone numbers or pressure, so nothing is flagged.", guardAdv: "This is a safety reminder with no links, phone numbers or demands, so nothing is flagged.",
           partial: "The message was long, so only the first sentences were examined.", disclaimer: "This explains the model\u2019s score; it is not proof. When in doubt, check with the sender through a number you already trust.",
           drop: function (n) { return "Without this sentence the scam score falls by " + n + " points."; }, alone: function (n) { return "On its own this sentence scores " + n + "% scam-like."; },
           limit: "Too many requests. Please wait a moment.", fail: "The demo server could not explain this message.", nf: "The highlighting feature is not available on this server version yet.",
           down: "Could not reach the demo server. If it was asleep, wait a minute and try again." },
     hi: { title: "यह नतीजा क्यों", main: "मुख्य कारण", adds: "जोखिम बढ़ाता है", fine: "चिंता की बात नहीं", working: "कारण खोजे जा रहे हैं\u2026",
           legend: "रेखांकित शब्द चेतावनी के संकेत हैं; कारण देखने के लिए उन पर टैप करें।", quiet: "मॉडल को इस संदेश में कुल मिलाकर लगभग कोई धोखे का संकेत नहीं दिखता, इसलिए कुछ भी मुख्य कारण के रूप में चिह्नित नहीं है।",
+          guardTx: "यह एक सामान्य बैंक लेनदेन संदेश जैसा दिखता है, जिसमें कोई लिंक, फ़ोन नंबर या दबाव नहीं है, इसलिए कुछ भी चिह्नित नहीं किया गया।", guardAdv: "यह धोखाधड़ी से बचाव की सलाह जैसा संदेश है, जिसमें कोई लिंक, फ़ोन नंबर या माँग नहीं है, इसलिए कुछ भी चिह्नित नहीं किया गया।",
           partial: "संदेश लंबा था, इसलिए केवल शुरुआती वाक्यों की जाँच की गई।", disclaimer: "यह मॉडल के स्कोर की व्याख्या है, कोई प्रमाण नहीं। संदेह होने पर भेजने वाले से किसी ऐसे नंबर पर पुष्टि करें जिस पर आप पहले से भरोसा करते हैं।",
           drop: function (n) { return "इस वाक्य के बिना धोखे का स्कोर " + n + " अंक घट जाता है।"; }, alone: function (n) { return "अकेले यह वाक्य " + n + "% धोखे जैसा दिखता है।"; },
           limit: "बहुत ज़्यादा अनुरोध। कृपया थोड़ा रुकें।", fail: "सर्वर इस संदेश की व्याख्या नहीं कर सका।", nf: "हाइलाइट की सुविधा इस सर्वर संस्करण में अभी उपलब्ध नहीं है।",
@@ -79,7 +81,8 @@
     });
     lg.appendChild(document.createTextNode(t.legend));
     root.appendChild(lg);
-    if (data.quiet) root.appendChild(el("p", "aex-note", t.quiet));
+    if (data.guard) root.appendChild(el("p", "aex-note", data.guard === "transaction_alert" ? t.guardTx : t.guardAdv));
+    else if (data.quiet) root.appendChild(el("p", "aex-note", t.quiet));
     var seen = {}, chips = el("ul", "aex-chips");
     data.spans.forEach(function (s) { if (!seen[s.why]) { seen[s.why] = 1; chips.appendChild(el("li", "", s.why.charAt(0).toUpperCase() + s.why.slice(1))); } });
     if (chips.children.length) root.appendChild(chips);
