@@ -3,7 +3,7 @@ var cfg=window.IC_PLAYGROUND||{},API=(cfg.api||'').replace(/\/+$/,''),REGION=cfg
 var $=function(i){return document.getElementById(i)};
 var ta=$('pg-text'),cnt=$('pg-count'),btn=$('pg-go'),ok=$('pg-ok'),pill=$('pg-pill'),res=$('pg-res'),regionEls=document.querySelectorAll('.pg-region');
 regionEls.forEach(function(e){e.textContent=REGION});
-var ready=false,busy=false,lang='en',last=null,lastText='';
+var ready=false,busy=false,lang='en',last=null,lastText='',hlDone=false;
 function setPill(kind,text){pill.className='pg-pill '+kind;pill.querySelector('span').textContent=text}
 function update(){cnt.textContent=ta.value.length+' / 1000';btn.disabled=!(ready&&!busy&&ok.checked&&ta.value.trim().length>0)}
 ta.addEventListener('input',update);ok.addEventListener('change',update);
@@ -22,8 +22,8 @@ else{
   })();
 }
 var UI={
- en:{score:'Risk score',not:'Not a scam',why:'Why we say this',todo:'What to do',riskiest:'Riskiest part: ',est:'This is an estimate, not a guarantee.',legacyTop:'Closest category: '},
- hi:{score:'जोखिम स्कोर',not:'धोखा नहीं',why:'हम ऐसा क्यों कह रहे हैं',todo:'क्या करें',riskiest:'सबसे जोखिम भरा हिस्सा: ',est:'यह एक अनुमान है, गारंटी नहीं।',legacyTop:'सबसे करीबी श्रेणी: '}};
+ en:{score:'Risk score',not:'Not a scam',why:'Why we say this',todo:'What to do',riskiest:'Riskiest part: ',est:'This is an estimate, not a guarantee.',legacyTop:'Closest category: ',where:'Show where in the message'},
+ hi:{score:'जोखिम स्कोर',not:'धोखा नहीं',why:'हम ऐसा क्यों कह रहे हैं',todo:'क्या करें',riskiest:'सबसे जोखिम भरा हिस्सा: ',est:'यह एक अनुमान है, गारंटी नहीं।',legacyTop:'सबसे करीबी श्रेणी: ',where:'संदेश में कहाँ, यह देखें'}};
 var LEGACY={scam:['Don’t click links, share OTPs or send money.','Report it to your bank, and at cybercrime.gov.in or on 1930.'],suspicious:['Be careful. Check with the sender through an official channel before you act.'],uncertain:['Treat unexpected requests for money, OTPs or links with caution.'],safe:['No scam pattern found. Still, never share OTPs or passwords with anyone.']};
 function cap(s){return s?s.charAt(0).toUpperCase()+s.slice(1):s}
 function li(parent,text){var e=document.createElement('li');e.textContent=text;parent.appendChild(e)}
@@ -44,6 +44,7 @@ function show(j){
   why.querySelector('h3').textContent=t.why;
   if(a&&a.focus_sentence){fq.hidden=false;fq.textContent=t.riskiest+'“'+a.focus_sentence+'”'}else fq.hidden=true;
   why.hidden=!(wl.children.length||(a&&a.focus_sentence));
+  var hb=$('pg-hlbox');hb.hidden=false;hb.open=false;hlDone=false;$('pg-hl').textContent='';$('pg-hl-sum').textContent=t.where;
   var dos=res.querySelector('.pg-do'),ol=dos.querySelector('ol');ol.innerHTML='';
   var steps=a?(a.what_to_do||[]):(LEGACY[tier]||[]);steps.forEach(function(s){li(ol,s)});
   dos.querySelector('h3').textContent=t.todo;dos.querySelector('.pg-report').textContent=a&&a.report?a.report:'';dos.hidden=!steps.length;
@@ -57,7 +58,7 @@ function show(j){
 }
 function err(msg){$('pg-empty').hidden=true;res.hidden=false;res.className='pg-res error';res.querySelector('.pg-title').textContent='Could not analyse';res.querySelector('.pg-cat').textContent=msg;
   res.querySelector('.pg-sum').textContent='';res.querySelector('.pg-conf b').textContent='';res.querySelector('.pg-meter i').style.width='0';res.querySelector('.pg-rel').textContent='';
-  res.querySelector('.pg-why').hidden=true;res.querySelector('.pg-do').hidden=true;res.querySelector('.pg-top').innerHTML='';res.querySelector('.pg-meta').textContent='';$('pg-fb').hidden=true}
+  res.querySelector('.pg-why').hidden=true;$('pg-hlbox').hidden=true;res.querySelector('.pg-do').hidden=true;res.querySelector('.pg-top').innerHTML='';res.querySelector('.pg-meta').textContent='';$('pg-fb').hidden=true}
 function call(text){
   return fetchT(API+'/v1/classify',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text:text,top_k:5,lang:lang}),cache:'no-store'},60000)
   .then(function(r){if(r.status===429){return r.json().then(function(){throw new Error('Too many requests. Please wait a few seconds and try again.')})}
@@ -72,6 +73,10 @@ res.querySelectorAll('.pg-lang button').forEach(function(b){b.addEventListener('
   if(b.dataset.l===lang||!lastText)return;lang=b.dataset.l;res.querySelectorAll('.pg-lang button').forEach(function(x){x.className=x.dataset.l===lang?'on':''});
   call(lastText).then(show).catch(fail);
 })});
+$('pg-hlbox').addEventListener('toggle',function(){
+  if(!this.open||hlDone||!lastText||!window.AntahpragnaExplain)return;
+  hlDone=true;AntahpragnaExplain.show($('pg-hl'),API,lastText,{lang:lang,hideTitle:true});
+});
 $('pg-fb-consent').addEventListener('change',function(){$('pg-fb-note').hidden=!this.checked});
 $('pg-fb').querySelectorAll('button[data-v]').forEach(function(b){b.addEventListener('click',function(){
   if(!last||!last.answer)return;var a=last.answer,says=b.dataset.v,consent=$('pg-fb-consent').checked;
